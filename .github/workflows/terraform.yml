@@ -62,6 +62,11 @@ jobs:
       - name: Terraform plan status
         if: steps.plan.outcome == 'failure'
         run: exit 1
+      
+      - name: Debug branch
+        run: |
+          echo "REF=$GITHUB_REF"
+          echo "EVENT=$GITHUB_EVENT_NAME"
 
       - name: Terraform Apply
         id: apply
